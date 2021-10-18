@@ -1,0 +1,66 @@
+{% url 'index' as index_url %}
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+{% url 'login' as login_url %}
+{% url 'profile' as profile_url %}
+{% url 'register' as register_url %}
+{% url 'logout' as logout_url %}
+{% url 'reservas' as reservas_url %}
+{% url 'agregar' as agregar_url%}
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+     <div class="container">
+         <a class="navbar-brand" href="#page-top">Mi Estacionamiento</a>
+         <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+             Menu
+             <i class="fas fa-bars"></i>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+             <ul class="navbar-nav ms-auto">
+               
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == index_url %}active{% endif %}" href="{{ index_url}}">Home</a></li>
+                 
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == about_url %}active{% endif %}" href="{{ about_url }}">About</a></li>
+
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == contact_url %}active{% endif %}" href="{{ contact_url }}">Contacto</a></li>
+                 {% if not request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == login_url %}active{% endif %}" href="{{ login_url }}">Login</a></li>
+                 {% endif %}
+                 {% if request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == profile_url %}active{% endif %}" href="{{ profile_url }}">Perfil</a></li>
+                 {% endif %}
+                 {% if not request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == register_url %}active{% endif %}" href="{{ register_url }}">Registro</a></li>
+                 {% endif %}
+                 {% if request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == reservas_url %}active{% endif %}" href="{{ reservas_url }}">Reservas</a></li>
+                 {% endif %}
+                 {% if request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == agregar_url %}active{% endif %}" href="{{ agregar_url }}">Agregar</a></li>
+                 {% endif %}
+                 {% if request.user.is_authenticated %}
+                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% if request.path == logout_url %}active{% endif %}" href="{{ logout_url }}">Cerrar Sesion</a></li>
+                {% endif %}
+                
+             </ul>
+         </div>
+     </div>
+ </nav>
+<!--
+<nav>
+    {% url 'index' as index_url %}
+   <span>{% if request.path == index_url %}Home{% else %}<a href="{{ index_url}}">Home</a>{% endif %}</span>
+   {% url 'about' as about_url %}
+   <span>{% if request.path == about_url %}About{% else %}<a href="{{ about_url }}">About</a>{% endif %}</span>
+   {% url 'contact' as contact_url %}
+   <span>{% if request.path == contact_url %}Contacto{% else %}<a href="{{ about_url }}">Contact</a>{% endif %}</span>
+   <span style="float:right">
+       {% if user.is_authenticated %}
+            {% url 'profile' as profile_url %}
+            <span>Hola {% if request.path == profile_url %}{{user.username}}{% else %}<a href="{{ profile_url }}">{{user.username}}!<a>{% endif %}</span>
+            <span><a href="{% url 'logout' %}">Logout</a></span>
+       {% else  %}
+            <span><a href="{% url 'login' %}">Login</a></span>
+       {% endif %}
+   </span>
+
+</nav> -->

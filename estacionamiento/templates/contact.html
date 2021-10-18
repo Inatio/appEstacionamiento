@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact {% endblock %}
+
+{% block content %}
+<h1>
+    Contacto
+</h1>
+<form action="" class="producto" method="post">
+
+    {% csrf_token %}
+
+    {{ form }}
+    <br>
+    <button type="submit" id="btnEnviar" class="button">Enviar</button>
+
+</form>
+{{mensaje}}
+<table id="tablacontactos">
+
+</table>
+{% endblock %}

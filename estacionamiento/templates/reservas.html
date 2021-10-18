@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>
+    Estacionamientos
+</h1>
+
+{% load humanize %}
+<div class="productos">
+    {% for e in estacionamientos %}
+    <div class="producto">
+
+        <div class="contenedor_producto">
+            {% if e.imagen %}
+            <img src="{{ e.imagen.url }}" alt="imagen estacionamiento">
+            {% endif %}
+            <div class="detalle">
+                <h5>{{ e.nombre |  capfirst}}</h5>
+                <h2>${{ e.precio | intcomma }}</h2>
+                <h3>Comuna: {{ e.comuna | title}}</h3>
+                <h4>Descripcion: {{ e.descripcion }}</h4>
+ 
+                <a href="{% url 'modificar_estacionamiento' e.id %}" class="btn btn-info btn-sm">Modificar</a>
+                <a href="{% url 'eliminar_estacionamiento' e.id %}" class="btn btn-info btn-sm">Eliminar</a>
+                
+
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+.main {
+    padding-top: 74px;
+}
+
+@media (min-width: 992px) {
+    #main {
+        padding-top: 104px;
+    }
+}
+
+
+@font-face{
+    font-family: "MiEstacionamiento Font";
+    src:
+    url("fonts/PettingillCF-Bold.otf") format(opentype);
+}
+
+.navbar-brand{
+    font-family: "MiEstacionamiento Font";
+}
+
+.masthead {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+@media (min-width: 992px) {
+    .masthead{
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+.masthead {
+    background-image: url("../assets/img/fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#contenido {
+    width: 80%;
+    margin:auto;
+    max-width: 1280px;
+    min-height: 100vh;
+}
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.producto {
+    width: 25%;
+    margin-top: 20px;
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto .detalle {
+    padding: 5px;
+}
+
+.producto .contenedor_producto {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+}

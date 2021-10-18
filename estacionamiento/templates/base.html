@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}Mi Estacionamiento{%endblock%} </title>
+
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'theme/css/styles.css'  %}" rel="stylesheet" />
+        <link href="{% static 'theme/cs/main.css'  %}" rel="stylesheet" />
+
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <main id="main">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="notification {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+    
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="{% static 'theme/js/scripts.js'  %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetaler2@10"></script>
+
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Felicitaciones",
+                    "text": "{{m}}",
+                    "icon": "succes"
+
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+</body>
+</html>

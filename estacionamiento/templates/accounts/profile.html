@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h1>
+   Perfil de {{ user.username }} 
+</h1>
+
+<a href="http://127.0.0.1:8000/agregar" class="btn btn-info btn-sm">Crear reserva</a>
+<a href="http://127.0.0.1:8000/reservas" class="btn btn-info btn-sm">Ver reservas</a>
+{% endblock %}
